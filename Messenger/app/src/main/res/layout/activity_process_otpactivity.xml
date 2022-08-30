@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:clipToPadding="false"
+    android:padding="@dimen/_24sdp"
+    android:scrollbars="none"
+    tools:context=".activities.ProcessOTPActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <TextView
+            android:id="@+id/textVerifyPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify +1 9806122187"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:text="Wait we are sending you an OTP"
+            android:textColor="@color/secondary_text"
+            android:gravity="center"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/inputOTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/outline_input_text_box"
+            android:padding="@dimen/_12sdp"
+            android:hint="Enter Your OTP"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:animateLayoutChanges="true">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonVerifyWithOTP"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                app:cornerRadius="@dimen/_2sdp"
+                android:text="Verify"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:visibility="invisible"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Messenger</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgot_your_password">Forgot Your Password</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login_to_continue">Login to continue</string>
+    <string name="add_image">Add Image</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+</resources>
