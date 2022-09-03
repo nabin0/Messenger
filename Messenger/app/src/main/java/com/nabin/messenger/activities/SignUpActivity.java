@@ -27,7 +27,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private ActivitySignUpBinding binding;
     private String encodedImage;
-    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        preferenceManager = new PreferenceManager(getApplicationContext());
+        PreferenceManager preferenceManager = new PreferenceManager(getApplicationContext());
 
         // If already signed in goto main activity
         if (preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)) {
@@ -88,10 +87,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         } else if (binding.inputMobileNumber.getText().toString().trim().isEmpty()) {
             showToast("Enter Mobile Number");
             return false;
-        } else if (!binding.pickerCountryCode.isValidFullNumber()) {
-            showToast("Enter a Valid Phone Number");
-            return false;
-        } else if (!Patterns.PHONE.matcher(binding.inputMobileNumber.getText().toString()).matches()) {
+        }
+//        else if (!binding.pickerCountryCode.isValidFullNumber()) {
+//            showToast("Enter a Valid Phone Number");
+//            return false;
+//        }
+
+        else if (!Patterns.PHONE.matcher(binding.inputMobileNumber.getText().toString()).matches()) {
             showToast("Enter Valid Phone Number");
             return false;
         } else if (binding.inputPassword.getText().toString().trim().isEmpty()) {

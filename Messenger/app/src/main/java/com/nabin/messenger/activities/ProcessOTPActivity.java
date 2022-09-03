@@ -57,6 +57,7 @@ public class ProcessOTPActivity extends AppCompatActivity {
 
                 PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(verificationId, binding.inputOTP.getText().toString());
                 firebaseAuth.signInWithCredential(phoneAuthCredential).addOnCompleteListener(task -> {
+
                     if (task.isSuccessful()) {
                         //Store Data To FireStore
                         if (starterActivity.equals("signUp")) {
@@ -69,9 +70,14 @@ public class ProcessOTPActivity extends AppCompatActivity {
                                         preferenceManager.putString(Constants.KEY_NAME, (String) userData.get(Constants.KEY_NAME));
                                         preferenceManager.putString(Constants.KEY_IMAGE, (String) userData.get(Constants.KEY_IMAGE));
                                         showToast("Account Created successfully.");
+
+                                        // Start MainActivity
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
                                     })
                                     .addOnFailureListener(e -> {
-                                        showToast(e.getMessage().toString());
+                                        showToast(e.getMessage());
                                     });
                         } else if (starterActivity.equals("signIn")) {
                             preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
@@ -79,14 +85,15 @@ public class ProcessOTPActivity extends AppCompatActivity {
                             preferenceManager.putString(Constants.KEY_NAME, (String) userData.get(Constants.KEY_NAME));
                             preferenceManager.putString(Constants.KEY_IMAGE, (String) userData.get(Constants.KEY_IMAGE));
                             showToast("Signed In Successfully.");
+
+                            // Start MainActivity
+                            finishAffinity();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(this, "Invalid starter Activity", Toast.LENGTH_SHORT).show();
                         }
-                        // Start MainActivity
-                        finishAffinity();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
 
                         loading(false);
 
@@ -114,8 +121,8 @@ public class ProcessOTPActivity extends AppCompatActivity {
 
     private void getIntentData() {
         phoneNo = getIntent().getStringExtra(Constants.KEY_PHONE);
+        // TODO: Unchecked warning
         userData = (HashMap<String, Object>) getIntent().getSerializableExtra(Constants.USER_DATA);
-        Toast.makeText(this, "size : " + userData.size(), Toast.LENGTH_SHORT).show();
         starterActivity = getIntent().getStringExtra(Constants.STARTER_ACTIVITY);
     }
 

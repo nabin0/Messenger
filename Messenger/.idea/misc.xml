@@ -3,12 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_chat_input.xml" value="0.2155" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_content_bottom.xml" value="0.1685" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_icon.xml" value="0.1685" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_image.xml" value="0.2165" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_input_text.xml" value="0.1685" />
-        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_received_message.xml" value="0.1685" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_sent_message.xml" value="0.1685" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_conversation.xml" value="0.5" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_process_otpactivity.xml" value="0.25" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_sign_in.xml" value="0.5" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_sign_up.xml" value="0.4486607142857143" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_users.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/fragment_chats.xml" value="0.209375" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/fragment_status.xml" value="0.1953125" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_received_message.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_recent_conversion_user.xml" value="0.209375" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_sent_message.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_user.xml" value="0.33" />
       </map>
     </option>
   </component>

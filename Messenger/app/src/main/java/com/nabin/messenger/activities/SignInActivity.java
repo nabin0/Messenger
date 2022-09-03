@@ -20,7 +20,6 @@ import java.util.HashMap;
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivitySignInBinding binding;
-    private PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        preferenceManager = new PreferenceManager(getApplicationContext());
+        PreferenceManager preferenceManager = new PreferenceManager(getApplicationContext());
 
         if (preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)) {
             startActivity(new Intent(this, MainActivity.class));
@@ -71,10 +70,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         } else if (!Patterns.PHONE.matcher(binding.inputMobileNumber.getText().toString()).matches()) {
             showToast("Enter a valid phone number");
             return false;
-        } else if (!binding.pickerCountryCode.isValidFullNumber()) {
-            showToast("Enter a valid Phone Number");
-            return false;
-        } else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
+        }
+
+//        else if (!binding.pickerCountryCode.isValidFullNumber()) {
+//            showToast("Enter a valid Phone Number");
+//            return false;
+//        }
+
+        else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
             showToast("Enter Password");
             return false;
         } else {
