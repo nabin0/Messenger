@@ -1,15 +1,20 @@
 package com.nabin.messenger.activities;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,6 +61,7 @@ public class ConversationActivity extends BaseActivity {
     private User receiverUser;
     private String conversationId;
     private boolean isReceiverAvailable = false;
+    private String receiverPhoneNumber = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +78,7 @@ public class ConversationActivity extends BaseActivity {
     private void setListeners() {
         binding.imageBack.setOnClickListener(view -> onBackPressed());
         binding.layoutSend.setOnClickListener(view -> sendMessage());
+        binding.imagePhoneCall.setOnClickListener(view -> startPhoneCall());
     }
 
     private void init() {
@@ -210,13 +217,12 @@ public class ConversationActivity extends BaseActivity {
                                     if (responseJson.getInt("failure") == 1) {
                                         JSONObject error = (JSONObject) results.get(0);
                                         showToast(error.getString("error"));
-                                        return;
                                     }
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            showToast("Notification sent successfully");
+                            // showToast("Notification sent successfully");
                         } else {
                             showToast("Error: " + response.code());
                         }
@@ -257,6 +263,26 @@ public class ConversationActivity extends BaseActivity {
                         binding.textUserAvailability.setVisibility(View.GONE);
                     }
 
+                });
+    }
+
+    private void startPhoneCall() {
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        database.collection(Constants.KEY_COLLECTION_USERS).document(receiverUser.getId()).get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot snapshot = task.getResult();
+                        if (snapshot.exists()) {
+                            receiverPhoneNumber = snapshot.getString(Constants.KEY_PHONE);
+                            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + receiverPhoneNumber));
+                            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                            } else {
+                                startActivity(intent);
+                            }
+
+                        }
+                    }
                 });
     }
 
@@ -330,6 +356,9 @@ public class ConversationActivity extends BaseActivity {
         super.onBackPressed();
 
         Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
+        finish();
     }
+
 }

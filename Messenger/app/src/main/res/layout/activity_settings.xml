@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.SettingsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:fitsSystemWindows="true"
+        tools:ignore="UnusedAttribute">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/primary"
+            android:fitsSystemWindows="true"
+            app:collapsedTitleTextColor="@color/white"
+            app:contentScrim="@color/primary"
+            app:expandedTitleTextColor="@color/white"
+            app:collapsedTitleGravity="center"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/imageUserProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:layout_anchor="@+id/appBarLayout"
+                app:layout_anchorGravity="center"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:titleTextColor="@color/white"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageBack"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:src="@drawable/ic_back"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:tint="@color/white"
+                    android:padding="@dimen/_6sdp"
+                    android:layout_gravity="start|top"
+                    android:contentDescription="Image Back" />
+
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Account"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/blue"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textPhoneNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/layoutUpdateUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap to change username"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textAboutUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Available."
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="About"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSelectUserImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_24sdp"
+        android:backgroundTint="@color/primary_dark"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_add_image"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="end|bottom"
+        app:tint="@color/white" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="center"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

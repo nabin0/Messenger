@@ -56,14 +56,14 @@ public class MessagingService extends FirebaseMessagingService {
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(
                 message.getData().get(Constants.KEY_MESSAGE)
         ));
-        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setPriority(NotificationCompat.PRIORITY_HIGH);
         builder.setContentIntent(pendingIntent);
         builder.setAutoCancel(true);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence channelName = "Chat Message";
             String channelDescription = "This notification channel is used for conversation";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            int importance = NotificationManager.IMPORTANCE_HIGH;
 
             NotificationChannel notificationChannel = new NotificationChannel(channelId, channelName, importance);
             notificationChannel.setDescription(channelDescription);

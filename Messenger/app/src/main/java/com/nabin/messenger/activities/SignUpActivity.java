@@ -13,6 +13,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.nabin.messenger.R;
 import com.nabin.messenger.databinding.ActivitySignUpBinding;
 import com.nabin.messenger.utilities.Constants;
@@ -27,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private ActivitySignUpBinding binding;
     private String encodedImage;
+    private boolean userExists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +65,22 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             startActivity(intent);
         } else if (id == R.id.buttonSignUp) {
             if (isValidSignUpDetails()) {
-                signUp();
+
+                String inputPhone = binding.pickerCountryCode.getFullNumberWithPlus().replace(" ", "");
+                FirebaseFirestore database = FirebaseFirestore.getInstance();
+                database.collection(Constants.KEY_COLLECTION_USERS)
+                        .whereEqualTo(Constants.KEY_PHONE, inputPhone)
+                        .get()
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful() && task.getResult() != null && task.getResult().getDocuments().size() > 0) {
+                                // User is already registered
+                                showToast("This number is already registered.");
+                            } else {
+                                // User is not already registered
+                                signUp();
+                            }
+                        });
+
             }
         } else if (id == R.id.layoutUserImage) {
             pickImage.launch("image/*");
@@ -87,13 +104,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         } else if (binding.inputMobileNumber.getText().toString().trim().isEmpty()) {
             showToast("Enter Mobile Number");
             return false;
-        }
-//        else if (!binding.pickerCountryCode.isValidFullNumber()) {
-//            showToast("Enter a Valid Phone Number");
-//            return false;
-//        }
-
-        else if (!Patterns.PHONE.matcher(binding.inputMobileNumber.getText().toString()).matches()) {
+        } else if (!binding.pickerCountryCode.isValidFullNumber()) {
+            showToast("Enter a Valid Phone Number");
+            return false;
+        } else if (!Patterns.PHONE.matcher(binding.inputMobileNumber.getText().toString()).matches()) {
             showToast("Enter Valid Phone Number");
             return false;
         } else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
@@ -109,6 +123,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             return true;
         }
     }
+
 
     private void signUp() {
         loading(true);

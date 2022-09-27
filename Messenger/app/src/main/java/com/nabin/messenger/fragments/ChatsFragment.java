@@ -11,7 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -92,8 +95,10 @@ public class ChatsFragment extends Fragment implements RecentConversationUserLis
                     ChatMessage chatMessage = new ChatMessage();
                     chatMessage.setSenderId(senderId);
                     chatMessage.setReceiverId(receiverId);
+
                     if (preferenceManager.getString(Constants.KEY_USER_ID).equals(senderId)) {
                         // When i first send message iam the sender
+
                         chatMessage.setConversationImage(documentChange.getDocument().getString(Constants.KEY_RECEIVER_IMAGE));
                         chatMessage.setConversationName(documentChange.getDocument().getString(Constants.KEY_RECEIVER_NAME));
                         chatMessage.setConversationId(documentChange.getDocument().getString(Constants.KEY_RECEIVER_ID));
@@ -121,7 +126,11 @@ public class ChatsFragment extends Fragment implements RecentConversationUserLis
             }
             Collections.sort(conversationUserList, (obj1, obj2) -> obj2.getDateObject().compareTo(obj1.getDateObject()));
             conversationUsersAdapter.notifyDataSetChanged();
-            binding.recentConversationUsersRecyclerView.smoothScrollToPosition(0);
+            try {
+                binding.recentConversationUsersRecyclerView.smoothScrollToPosition(0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             binding.recentConversationUsersRecyclerView.setVisibility(View.VISIBLE);
             binding.progressBar.setVisibility(View.GONE);
         }

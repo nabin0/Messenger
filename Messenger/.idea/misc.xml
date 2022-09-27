@@ -10,18 +10,26 @@
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_input_text.xml" value="0.1685" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_received_message.xml" value="0.1685" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/background_sent_message.xml" value="0.1685" />
-        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_conversation.xml" value="0.5" />
-        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/ic_add_circle.xml" value="0.174" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/drawable/ic_add_image.xml" value="0.174" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout-v21/activity_settings.xml" value="0.209375" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_conversation.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_edit_story.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_process_otpactivity.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_settings.xml" value="0.25" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_sign_in.xml" value="0.5" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_sign_up.xml" value="0.4486607142857143" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_users.xml" value="0.25" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/activity_view_story.xml" value="0.25" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/fragment_chats.xml" value="0.209375" />
-        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/fragment_status.xml" value="0.1953125" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/fragment_status.xml" value="0.3781749764816557" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_received_message.xml" value="0.25" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_recent_conversion_user.xml" value="0.209375" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_sent_message.xml" value="0.25" />
         <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_user.xml" value="0.33" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/layout/item_container_user_story.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/nabin/Documents/AndroidStudioProjects/Messenger/Messenger/app/src/main/res/menu/menu_main_activity.xml" value="0.25" />
       </map>
     </option>
   </component>

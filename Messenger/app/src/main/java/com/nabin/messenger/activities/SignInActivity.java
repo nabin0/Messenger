@@ -20,6 +20,8 @@ import java.util.HashMap;
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivitySignInBinding binding;
+    private PreferenceManager preferenceManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        PreferenceManager preferenceManager = new PreferenceManager(getApplicationContext());
+        preferenceManager = new PreferenceManager(getApplicationContext());
 
         if (preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)) {
             startActivity(new Intent(this, MainActivity.class));
@@ -70,14 +72,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         } else if (!Patterns.PHONE.matcher(binding.inputMobileNumber.getText().toString()).matches()) {
             showToast("Enter a valid phone number");
             return false;
-        }
-
-//        else if (!binding.pickerCountryCode.isValidFullNumber()) {
-//            showToast("Enter a valid Phone Number");
-//            return false;
-//        }
-
-        else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
+        } else if (!binding.pickerCountryCode.isValidFullNumber()) {
+            showToast("Enter a valid Phone Number");
+            return false;
+        } else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
             showToast("Enter Password");
             return false;
         } else {
@@ -103,6 +101,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         userData.put(Constants.KEY_NAME, snapshot.get(Constants.KEY_NAME));
                         userData.put(Constants.KEY_PHONE, binding.pickerCountryCode.getFullNumberWithPlus().replace(" ", ""));
                         userData.put(Constants.KEY_IMAGE, snapshot.get(Constants.KEY_IMAGE));
+
+                        preferenceManager.putString(Constants.KEY_USER_ID, (String) userData.get(Constants.KEY_USER_ID));
+                        preferenceManager.putString(Constants.KEY_NAME, (String) userData.get(Constants.KEY_NAME));
+                        preferenceManager.putString(Constants.KEY_PHONE, (String) userData.get(Constants.KEY_PHONE));
+                        preferenceManager.putString(Constants.KEY_IMAGE, (String) userData.get(Constants.KEY_IMAGE));
 
                         Intent intent = new Intent(getApplicationContext(), ProcessOTPActivity.class);
                         intent.putExtra(Constants.USER_DATA, userData);

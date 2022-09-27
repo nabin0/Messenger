@@ -3,6 +3,9 @@
     <style name="Theme.Messenger" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:forceDarkAllowed" tools:ignore="NewApi">true</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="itemTextColor">@color/primary_text</item>
     </style>
 
 </resources>

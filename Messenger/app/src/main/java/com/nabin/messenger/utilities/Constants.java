@@ -40,6 +40,14 @@ public class Constants {
     public static final String REMOTE_MESSAGE_DATA = "data";
     public static final String REMOTE_MESSAGE_REGISTRATION_IDS = "registration_ids";
 
+    public static final String STORY_POST_MEDIA = "storyMedia";
+    public static final String STORY_POST_DIRECTORY = "stories";
+    public static final String ALL_STORY_POST_DIRECTORY = "allStories";
+    public static final String STORY_POST_TIME = "postTime";
+    public static final String STORY_END_TIME = "endTime";
+    public static final String STORY_CAPTION = "story_caption";
+    public static final String STORY_MEDIA_URL = "storyMediaUrl";
+
 
     public static HashMap<String, String> remoteMessageHeaders = null;
 

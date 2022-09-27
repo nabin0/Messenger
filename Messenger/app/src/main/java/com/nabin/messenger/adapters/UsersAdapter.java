@@ -47,7 +47,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         return users.size();
     }
 
-
     class UserViewHolder extends RecyclerView.ViewHolder {
         ItemContainerUserBinding binding;
 
@@ -65,7 +64,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     }
 
     private Bitmap getUserImage(String encodedImage) {
-        if(encodedImage == null) return null;
+        if (encodedImage == null) return null;
         byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }

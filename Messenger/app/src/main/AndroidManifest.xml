@@ -4,6 +4,7 @@
     package="com.nabin.messenger">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Messenger"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.ViewStory"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EditStoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.ConversationActivity"
             android:exported="false" />

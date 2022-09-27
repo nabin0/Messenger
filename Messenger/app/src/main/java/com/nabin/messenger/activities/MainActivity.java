@@ -2,22 +2,27 @@ package com.nabin.messenger.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.nabin.messenger.R;
 import com.nabin.messenger.adapters.MainActivityViewPagerFragmentsAdapter;
 import com.nabin.messenger.databinding.ActivityMainBinding;
 import com.nabin.messenger.utilities.BaseActivity;
 import com.nabin.messenger.utilities.Constants;
 import com.nabin.messenger.utilities.PreferenceManager;
 
-import java.util.Base64;
 import java.util.HashMap;
 
 public class MainActivity extends BaseActivity {
@@ -37,11 +42,9 @@ public class MainActivity extends BaseActivity {
 
         preferenceManager = new PreferenceManager(getApplicationContext());
 
-        if(!preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)){
+        if (!preferenceManager.getBoolean(Constants.KEY_IS_SIGNED_IN)) {
             finish();
         }
-
-        Toast.makeText(this, "Hello " + preferenceManager.getString(Constants.KEY_NAME), Toast.LENGTH_SHORT).show();
 
         // Set Viewpager with tab-layout
         viewPagerFragmentsAdapter = new MainActivityViewPagerFragmentsAdapter(this);
@@ -50,8 +53,31 @@ public class MainActivity extends BaseActivity {
             tab.setText(Constants.TITLES[position]);
         }).attach();
 
+        //Set Menu
+        setToolbarMenu();
+
         getToken();
 
+    }
+
+    private void setToolbarMenu() {
+        binding.toolbar.inflateMenu(R.menu.menu_main_activity);
+        binding.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.settings) {
+                    Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                    startActivity(intent);
+                    return true;
+                }else if(id == R.id.signOut){
+                    signOut();
+                    Toast.makeText(MainActivity.this, "Signed Out Successfully", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     private void getToken() {
@@ -87,8 +113,11 @@ public class MainActivity extends BaseActivity {
 
     private void goToSignInActivity() {
         finishAffinity();
+        preferenceManager.clear();
         Intent intent = new Intent(this, SignInActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
+
 }
