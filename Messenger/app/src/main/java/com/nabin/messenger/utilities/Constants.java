@@ -51,11 +51,12 @@ public class Constants {
 
     public static HashMap<String, String> remoteMessageHeaders = null;
 
+    // TODO : add your api key
     public static HashMap<String, String> getRemoteMessageHeaders() {
         if (remoteMessageHeaders == null) {
             remoteMessageHeaders = new HashMap<>();
             remoteMessageHeaders.put(REMOTE_MESSAGE_AUTHORIZATION,
-                    "key=AAAAbI7BxvM:APA91bFvpJ-EPpADmxl_V86RNNBTnGhjKhQ2yit4gnbSmB8KV0s8NWFiabz67pNTAj1C5VkYCwOGarH2rCE7kvUD1WyCsGKP9JLRkHkwwRqvB9nhgQOEnetBroWU3nzzZ1kTKsY61Gbt");
+                    "key=api key here");
 
             remoteMessageHeaders.put(REMOTE_MESSAGE_CONTENT_TYPE,
                     "application/json");
