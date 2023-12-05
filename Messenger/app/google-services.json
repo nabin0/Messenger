@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "466251532019",
-    "project_id": "messenger-a707a",
-    "storage_bucket": "messenger-a707a.appspot.com"
+    "project_number": "888239110203",
+    "project_id": "messenger-app-15559",
+    "storage_bucket": "messenger-app-15559.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:466251532019:android:6849fc7c49f5c90dafd986",
+        "mobilesdk_app_id": "1:888239110203:android:15016e2ca99663f44ac41e",
         "android_client_info": {
           "package_name": "com.nabin.messenger"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "466251532019-6m1i1h81hojfj7osbfd0laerla8b7lhj.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA-L98tPnxwyDK754EgoWA99fdWCkxouAs"
+          "current_key": "AIzaSyA9bQoUiyGgJxXetJcSCL1r8NwIRnp9i1k"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "466251532019-6m1i1h81hojfj7osbfd0laerla8b7lhj.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
